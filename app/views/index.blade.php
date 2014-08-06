@@ -259,11 +259,11 @@
 	                    	<img src="images/product-5.jpg" alt="">
 	                	</a>
 	                    <div class="caption prod-caption">
-	                        <h4><a href="">Live Nation 3 Days of Peace and Music Carbon</a></h4>
-	                        <p>Product Description</p>
+	                        <h4><a href="">Prestige </a></h4>
+	                        <p>Omega non stick kadai, frypan set</p>
 	                        <p>
 	                        	<div class="btn-group">
-	                        		<a href="#" class="btn btn-default"><i class="fa fa-rupee"></i> 999.99</a>
+	                        		<a href="#" class="btn btn-default"><i class="fa fa-rupee"></i> 899.99</a>
 	                        		<a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Buy</a>
 	                        	</div>
 	                        </p>
