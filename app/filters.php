@@ -32,27 +32,43 @@ App::after(function($request, $response)
 | integrates HTTP Basic authentication for quick, simple checking.
 |
 */
-
-Route::filter('auth', function()
+Route::filter('isUser', function ()
 {
-	if (Auth::guest())
-	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			return Redirect::guest('login');
-		}
-	}
+    if ( ! Sentry::check()) return Redirect::guest('login');
+});
+
+Route::filter('isAdmin', function ()
+{
+    if (  Sentry::check())
+    {
+        if ( ! Sentry::getUser()->hasAccess('admin')) return Redirect::route('/')->with('message', "You need to be an admin to access this page.");
+    } else
+    {
+        return Redirect::route('login');
+    }
 });
 
 
-Route::filter('auth.basic', function()
-{
-	return Auth::basic();
-});
+// Route::filter('auth', function()
+// {
+// 	if (Auth::guest())
+// 	{
+// 		if (Request::ajax())
+// 		{
+// 			return Response::make('Unauthorized', 401);
+// 		}
+// 		else
+// 		{
+// 			return Redirect::guest('login');
+// 		}
+// 	}
+// });
+
+
+// Route::filter('auth.basic', function()
+// {
+// 	return Auth::basic();
+// });
 
 /*
 |--------------------------------------------------------------------------
@@ -67,7 +83,8 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+	if (Sentry::check() )
+	    return Redirect::to('/');
 });
 
 /*
@@ -81,10 +98,10 @@ Route::filter('guest', function()
 |
 */
 
-Route::filter('csrf', function()
-{
-	if (Session::token() != Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
-});
+//Route::filter('csrf', function()
+//{
+//	if (Session::token() != Input::get('_token'))
+//	{
+//		throw new Illuminate\Session\TokenMismatchException;
+//	}
+//});

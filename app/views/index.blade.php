@@ -25,7 +25,7 @@
 	            <!-- End Logo -->
 
 				<!-- Search Form -->
-	            <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12">
+	            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-11">
 	            	<div class="well">
 	                    <form action="">
 	                        <div class="input-group">
@@ -68,6 +68,11 @@
 	                </div>
 	            </div>
 	            <!-- End Shopping Cart List -->
+                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+	            	<div class="well">
+                        <a href="{{ route('login') }}" class="btn btn-primary">Login</a> 
+	                </div>
+	            </div>
 	        </div>
 	    </div>
     </header>

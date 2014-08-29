@@ -1,0 +1,1 @@
+/Users/hassanjamal/code/bcml/app/views/payments/show.blade.php
